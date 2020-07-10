@@ -11,6 +11,7 @@
 		3D9A014C24B8D23500B4CAD8 /* CustomTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D9A014A24B8D23500B4CAD8 /* CustomTextCell.xib */; };
 		3D9A014F24B8D25200B4CAD8 /* CustomImageAndTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A014D24B8D25200B4CAD8 /* CustomImageAndTextCell.swift */; };
 		3D9A015024B8D25200B4CAD8 /* CustomImageAndTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D9A014E24B8D25200B4CAD8 /* CustomImageAndTextCell.xib */; };
+		3D9A015324B90E2200B4CAD8 /* FormatDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A015224B90E2200B4CAD8 /* FormatDate.swift */; };
 		C3C9D35E249B324B001F55A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D35D249B324B001F55A6 /* AppDelegate.swift */; };
 		C3C9D360249B324B001F55A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D35F249B324B001F55A6 /* SceneDelegate.swift */; };
 		C3C9D362249B324B001F55A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D361249B324B001F55A6 /* ViewController.swift */; };
@@ -48,6 +49,7 @@
 		3D9A014A24B8D23500B4CAD8 /* CustomTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTextCell.xib; sourceTree = "<group>"; };
 		3D9A014D24B8D25200B4CAD8 /* CustomImageAndTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageAndTextCell.swift; sourceTree = "<group>"; };
 		3D9A014E24B8D25200B4CAD8 /* CustomImageAndTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomImageAndTextCell.xib; sourceTree = "<group>"; };
+		3D9A015224B90E2200B4CAD8 /* FormatDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDate.swift; sourceTree = "<group>"; };
 		C3C9D35A249B324B001F55A6 /* Birdie-Final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Birdie-Final.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C9D35D249B324B001F55A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3C9D35F249B324B001F55A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D9A015124B90E0D00B4CAD8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3D9A015224B90E2200B4CAD8 /* FormatDate.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3D9A015424B910E600B4CAD8 /* CustomTextCell */ = {
+			isa = PBXGroup;
+			children = (
+				3D9A014924B8D23500B4CAD8 /* CustomTextCell.swift */,
+				3D9A014A24B8D23500B4CAD8 /* CustomTextCell.xib */,
+			);
+			path = CustomTextCell;
+			sourceTree = "<group>";
+		};
+		3D9A015524B910F500B4CAD8 /* CustomImageCell */ = {
+			isa = PBXGroup;
+			children = (
+				3D9A014D24B8D25200B4CAD8 /* CustomImageAndTextCell.swift */,
+				3D9A014E24B8D25200B4CAD8 /* CustomImageAndTextCell.xib */,
+			);
+			path = CustomImageCell;
+			sourceTree = "<group>";
+		};
 		C3C9D351249B324B001F55A6 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +145,7 @@
 		C3C9D35C249B324B001F55A6 /* Birdie-Final */ = {
 			isa = PBXGroup;
 			children = (
+				3D9A015124B90E0D00B4CAD8 /* Helpers */,
 				C3C9D390249B325C001F55A6 /* AppDelegate */,
 				C3C9D399249B3484001F55A6 /* Controller */,
 				C3C9D398249B3479001F55A6 /* Model */,
@@ -159,12 +188,10 @@
 		C3C9D391249B326C001F55A6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3D9A015424B910E600B4CAD8 /* CustomTextCell */,
+				3D9A015524B910F500B4CAD8 /* CustomImageCell */,
 				C3C9D363249B324B001F55A6 /* Main.storyboard */,
 				C3C9D36B249B324C001F55A6 /* LaunchScreen.storyboard */,
-				3D9A014924B8D23500B4CAD8 /* CustomTextCell.swift */,
-				3D9A014A24B8D23500B4CAD8 /* CustomTextCell.xib */,
-				3D9A014D24B8D25200B4CAD8 /* CustomImageAndTextCell.swift */,
-				3D9A014E24B8D25200B4CAD8 /* CustomImageAndTextCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -330,6 +357,7 @@
 			files = (
 				C3C9D393249B3448001F55A6 /* TextPostModel.swift in Sources */,
 				3D9A014F24B8D25200B4CAD8 /* CustomImageAndTextCell.swift in Sources */,
+				3D9A015324B90E2200B4CAD8 /* FormatDate.swift in Sources */,
 				C3C9D395249B3453001F55A6 /* ImagePostModel.swift in Sources */,
 				C3C9D362249B324B001F55A6 /* ViewController.swift in Sources */,
 				C3C9D397249B346E001F55A6 /* MediaPostProtocol.swift in Sources */,

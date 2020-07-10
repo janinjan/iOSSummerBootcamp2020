@@ -11,14 +11,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="111" id="KGk-i7-Jjw" customClass="CustomTextCell" customModule="Birdie_Final" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomTextCell" rowHeight="111" id="KGk-i7-Jjw" customClass="CustomTextCell" customModule="Birdie_Final" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EoU-bN-ffO">
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EoU-bN-ffO">
                         <rect key="frame" x="5" y="5" width="310" height="101"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YcD-gf-Ysk">
@@ -51,19 +51,20 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CHo-9C-8JF">
-                                <rect key="frame" x="0.0" y="60" width="310" height="41"/>
+                                <rect key="frame" x="0.0" y="50" width="310" height="51"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybg-5W-0QG">
-                                        <rect key="frame" x="0.0" y="0.0" width="310" height="20.5"/>
+                                        <rect key="frame" x="8" y="8" width="294" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JM2-CX-fvD">
-                                        <rect key="frame" x="0.0" y="20.5" width="310" height="20.5"/>
+                                        <rect key="frame" x="8" y="28.5" width="294" height="14.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                             </stackView>
                         </subviews>
                     </stackView>
@@ -76,6 +77,11 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="textBody" destination="Ybg-5W-0QG" id="1wP-eZ-K2d"/>
+                <outlet property="timeStamp" destination="OrD-9f-Gm7" id="1oR-V5-f7k"/>
+                <outlet property="userName" destination="4ve-PD-q2T" id="11D-MP-b4V"/>
+            </connections>
             <point key="canvasLocation" x="18.840579710144929" y="140.95982142857142"/>
         </tableViewCell>
     </objects>
