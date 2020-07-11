@@ -85,7 +85,7 @@ class ViewController: UIViewController {
                     }
                     self.tableview.reloadData()
                 } else {
-                    print("You need to fill all the fields.")
+                    self.displayAlertForEmptyTextFields()
                 }
             }
         }
@@ -94,6 +94,14 @@ class ViewController: UIViewController {
 
         alert.addAction(okAction)
         alert.addAction(cancelAction)
+        present(alert, animated: true)
+    }
+
+    private func displayAlertForEmptyTextFields() {
+        let alert = UIAlertController(title: "You need to fill all the fields", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
+            self.displayPostAlert()
+        }))
         present(alert, animated: true)
     }
 }
@@ -105,19 +113,10 @@ extension ViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = MediaPostsHandler.shared.mediaPosts[indexPath.row]
-
-        if post is TextPost {
-            guard let cell = tableview.dequeueReusableCell(withIdentifier: CustomTextCell.identifier, for: indexPath) as? CustomTextCell else { return UITableViewCell() }
-            cell.post = post as? TextPost
-
-            return cell
-        } else if post is ImagePost {
-            guard let cell = tableview.dequeueReusableCell(withIdentifier: CustomImageAndTextCell.identifier, for: indexPath) as? CustomImageAndTextCell else { return UITableViewCell() }
-            cell.post = post as? ImagePost
-
-            return cell
-        }
-        return UITableViewCell()
+        
+        return MediaPostsViewModel.shared.createCell(post: post,
+                                                     in: tableview,
+                                                     for: indexPath)
     }
 }
 
