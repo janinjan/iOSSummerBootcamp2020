@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17162" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Sandwich" representedClassName=".Sandwich" syncable="YES">
+        <attribute name="imageName" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="sauce" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="SauceAmountModel" inverseName="sandwich" inverseEntity="SauceAmountModel"/>
+    </entity>
+    <entity name="SauceAmountModel" representedClassName="SauceAmountModel" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" attributeType="String"/>
+        <relationship name="sandwich" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sandwich" inverseName="sauce" inverseEntity="Sandwich"/>
+    </entity>
+    <elements>
+        <element name="Sandwich" positionX="-27" positionY="18" width="128" height="88"/>
+        <element name="SauceAmountModel" positionX="154.09765625" positionY="33.24609375" width="128" height="73"/>
+    </elements>
+</model>

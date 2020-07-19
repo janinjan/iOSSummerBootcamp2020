@@ -19,6 +19,11 @@
 		12A0791424AFDD8E0097F149 /* SandwichData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A0791324AFDD8E0097F149 /* SandwichData.swift */; };
 		12A0791824B2CC9A0097F149 /* sandwiches.json in Resources */ = {isa = PBXBuildFile; fileRef = 12A0791724B2CC9A0097F149 /* sandwiches.json */; };
 		3DDE615C24C222B000E3012A /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDE615B24C222B000E3012A /* UserDefaults.swift */; };
+		3DDE617924C4CC5100E3012A /* SandwichSaturation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DDE617724C4CC5100E3012A /* SandwichSaturation.xcdatamodeld */; };
+		3DDE617E24C4CF6600E3012A /* Sandwich+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDE617A24C4CF6600E3012A /* Sandwich+CoreDataClass.swift */; };
+		3DDE617F24C4CF6600E3012A /* Sandwich+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDE617B24C4CF6600E3012A /* Sandwich+CoreDataProperties.swift */; };
+		3DDE618024C4CF6600E3012A /* SauceAmountModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDE617C24C4CF6600E3012A /* SauceAmountModel+CoreDataClass.swift */; };
+		3DDE618124C4CF6600E3012A /* SauceAmountModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDE617D24C4CF6600E3012A /* SauceAmountModel+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,11 @@
 		12A0791324AFDD8E0097F149 /* SandwichData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichData.swift; sourceTree = "<group>"; };
 		12A0791724B2CC9A0097F149 /* sandwiches.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sandwiches.json; sourceTree = "<group>"; };
 		3DDE615B24C222B000E3012A /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		3DDE617824C4CC5100E3012A /* SandwichSaturation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SandwichSaturation.xcdatamodel; sourceTree = "<group>"; };
+		3DDE617A24C4CF6600E3012A /* Sandwich+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sandwich+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3DDE617B24C4CF6600E3012A /* Sandwich+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sandwich+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3DDE617C24C4CF6600E3012A /* SauceAmountModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SauceAmountModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3DDE617D24C4CF6600E3012A /* SauceAmountModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SauceAmountModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +113,7 @@
 		12A0791224AFDD810097F149 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3DDE618224C4CFA400E3012A /* CoreData */,
 				12A0791724B2CC9A0097F149 /* sandwiches.json */,
 				12A0791324AFDD8E0097F149 /* SandwichData.swift */,
 			);
@@ -115,6 +126,18 @@
 				3DDE615B24C222B000E3012A /* UserDefaults.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3DDE618224C4CFA400E3012A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3DDE617724C4CC5100E3012A /* SandwichSaturation.xcdatamodeld */,
+				3DDE617A24C4CF6600E3012A /* Sandwich+CoreDataClass.swift */,
+				3DDE617B24C4CF6600E3012A /* Sandwich+CoreDataProperties.swift */,
+				3DDE617C24C4CF6600E3012A /* SauceAmountModel+CoreDataClass.swift */,
+				3DDE617D24C4CF6600E3012A /* SauceAmountModel+CoreDataProperties.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,12 +214,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1255799324AFCBD7004C616F /* SandwichCell.swift in Sources */,
+				3DDE618124C4CF6600E3012A /* SauceAmountModel+CoreDataProperties.swift in Sources */,
 				12A0791124AFDC5C0097F149 /* AddSandwichViewController.swift in Sources */,
+				3DDE617924C4CC5100E3012A /* SandwichSaturation.xcdatamodeld in Sources */,
 				1255797B24AFB8FA004C616F /* AppDelegate.swift in Sources */,
+				3DDE617F24C4CF6600E3012A /* Sandwich+CoreDataProperties.swift in Sources */,
 				1255797D24AFB8FA004C616F /* SceneDelegate.swift in Sources */,
 				1255797F24AFB8FA004C616F /* SandwichViewController.swift in Sources */,
 				3DDE615C24C222B000E3012A /* UserDefaults.swift in Sources */,
+				3DDE617E24C4CF6600E3012A /* Sandwich+CoreDataClass.swift in Sources */,
 				12A0791424AFDD8E0097F149 /* SandwichData.swift in Sources */,
+				3DDE618024C4CF6600E3012A /* SauceAmountModel+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +422,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3DDE617724C4CC5100E3012A /* SandwichSaturation.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3DDE617824C4CC5100E3012A /* SandwichSaturation.xcdatamodel */,
+			);
+			currentVersion = 3DDE617824C4CC5100E3012A /* SandwichSaturation.xcdatamodel */;
+			path = SandwichSaturation.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1255796F24AFB8FA004C616F /* Project object */;
 }
