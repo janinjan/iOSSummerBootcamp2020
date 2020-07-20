@@ -5,8 +5,8 @@
         <attribute name="name" attributeType="String"/>
         <relationship name="sauce" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="SauceAmountModel" inverseName="sandwich" inverseEntity="SauceAmountModel"/>
     </entity>
-    <entity name="SauceAmountModel" representedClassName="SauceAmountModel" syncable="YES" codeGenerationType="class">
-        <attribute name="amount" attributeType="String"/>
+    <entity name="SauceAmountModel" representedClassName=".SauceAmountModel" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="String"/>
         <relationship name="sandwich" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sandwich" inverseName="sauce" inverseEntity="Sandwich"/>
     </entity>
     <elements>

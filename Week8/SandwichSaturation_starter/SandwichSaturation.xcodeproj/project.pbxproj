@@ -18,12 +18,12 @@
 		12A0791124AFDC5C0097F149 /* AddSandwichViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A0791024AFDC5C0097F149 /* AddSandwichViewController.swift */; };
 		12A0791424AFDD8E0097F149 /* SandwichData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A0791324AFDD8E0097F149 /* SandwichData.swift */; };
 		12A0791824B2CC9A0097F149 /* sandwiches.json in Resources */ = {isa = PBXBuildFile; fileRef = 12A0791724B2CC9A0097F149 /* sandwiches.json */; };
+		3D9E35C324C4D5DF0077D347 /* Sandwich+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9E35C124C4D5DF0077D347 /* Sandwich+CoreDataClass.swift */; };
+		3D9E35C424C4D5DF0077D347 /* Sandwich+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9E35C224C4D5DF0077D347 /* Sandwich+CoreDataProperties.swift */; };
+		3D9E35C724C4D60D0077D347 /* SauceAmountModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9E35C524C4D60D0077D347 /* SauceAmountModel+CoreDataClass.swift */; };
+		3D9E35C824C4D60D0077D347 /* SauceAmountModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9E35C624C4D60D0077D347 /* SauceAmountModel+CoreDataProperties.swift */; };
 		3DDE615C24C222B000E3012A /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDE615B24C222B000E3012A /* UserDefaults.swift */; };
 		3DDE617924C4CC5100E3012A /* SandwichSaturation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DDE617724C4CC5100E3012A /* SandwichSaturation.xcdatamodeld */; };
-		3DDE617E24C4CF6600E3012A /* Sandwich+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDE617A24C4CF6600E3012A /* Sandwich+CoreDataClass.swift */; };
-		3DDE617F24C4CF6600E3012A /* Sandwich+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDE617B24C4CF6600E3012A /* Sandwich+CoreDataProperties.swift */; };
-		3DDE618024C4CF6600E3012A /* SauceAmountModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDE617C24C4CF6600E3012A /* SauceAmountModel+CoreDataClass.swift */; };
-		3DDE618124C4CF6600E3012A /* SauceAmountModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDE617D24C4CF6600E3012A /* SauceAmountModel+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,12 +40,12 @@
 		12A0791024AFDC5C0097F149 /* AddSandwichViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSandwichViewController.swift; sourceTree = "<group>"; };
 		12A0791324AFDD8E0097F149 /* SandwichData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichData.swift; sourceTree = "<group>"; };
 		12A0791724B2CC9A0097F149 /* sandwiches.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sandwiches.json; sourceTree = "<group>"; };
+		3D9E35C124C4D5DF0077D347 /* Sandwich+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sandwich+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3D9E35C224C4D5DF0077D347 /* Sandwich+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sandwich+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3D9E35C524C4D60D0077D347 /* SauceAmountModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SauceAmountModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3D9E35C624C4D60D0077D347 /* SauceAmountModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SauceAmountModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3DDE615B24C222B000E3012A /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		3DDE617824C4CC5100E3012A /* SandwichSaturation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SandwichSaturation.xcdatamodel; sourceTree = "<group>"; };
-		3DDE617A24C4CF6600E3012A /* Sandwich+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sandwich+CoreDataClass.swift"; sourceTree = "<group>"; };
-		3DDE617B24C4CF6600E3012A /* Sandwich+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sandwich+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		3DDE617C24C4CF6600E3012A /* SauceAmountModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SauceAmountModel+CoreDataClass.swift"; sourceTree = "<group>"; };
-		3DDE617D24C4CF6600E3012A /* SauceAmountModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SauceAmountModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,10 +132,10 @@
 			isa = PBXGroup;
 			children = (
 				3DDE617724C4CC5100E3012A /* SandwichSaturation.xcdatamodeld */,
-				3DDE617A24C4CF6600E3012A /* Sandwich+CoreDataClass.swift */,
-				3DDE617B24C4CF6600E3012A /* Sandwich+CoreDataProperties.swift */,
-				3DDE617C24C4CF6600E3012A /* SauceAmountModel+CoreDataClass.swift */,
-				3DDE617D24C4CF6600E3012A /* SauceAmountModel+CoreDataProperties.swift */,
+				3D9E35C524C4D60D0077D347 /* SauceAmountModel+CoreDataClass.swift */,
+				3D9E35C624C4D60D0077D347 /* SauceAmountModel+CoreDataProperties.swift */,
+				3D9E35C124C4D5DF0077D347 /* Sandwich+CoreDataClass.swift */,
+				3D9E35C224C4D5DF0077D347 /* Sandwich+CoreDataProperties.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -214,17 +214,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1255799324AFCBD7004C616F /* SandwichCell.swift in Sources */,
-				3DDE618124C4CF6600E3012A /* SauceAmountModel+CoreDataProperties.swift in Sources */,
+				3D9E35C824C4D60D0077D347 /* SauceAmountModel+CoreDataProperties.swift in Sources */,
 				12A0791124AFDC5C0097F149 /* AddSandwichViewController.swift in Sources */,
 				3DDE617924C4CC5100E3012A /* SandwichSaturation.xcdatamodeld in Sources */,
 				1255797B24AFB8FA004C616F /* AppDelegate.swift in Sources */,
-				3DDE617F24C4CF6600E3012A /* Sandwich+CoreDataProperties.swift in Sources */,
+				3D9E35C424C4D5DF0077D347 /* Sandwich+CoreDataProperties.swift in Sources */,
 				1255797D24AFB8FA004C616F /* SceneDelegate.swift in Sources */,
 				1255797F24AFB8FA004C616F /* SandwichViewController.swift in Sources */,
 				3DDE615C24C222B000E3012A /* UserDefaults.swift in Sources */,
-				3DDE617E24C4CF6600E3012A /* Sandwich+CoreDataClass.swift in Sources */,
+				3D9E35C324C4D5DF0077D347 /* Sandwich+CoreDataClass.swift in Sources */,
 				12A0791424AFDD8E0097F149 /* SandwichData.swift in Sources */,
-				3DDE618024C4CF6600E3012A /* SauceAmountModel+CoreDataClass.swift in Sources */,
+				3D9E35C724C4D60D0077D347 /* SauceAmountModel+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

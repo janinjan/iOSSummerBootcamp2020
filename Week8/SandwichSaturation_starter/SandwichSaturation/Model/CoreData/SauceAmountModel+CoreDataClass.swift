@@ -12,5 +12,14 @@ import CoreData
 
 @objc(SauceAmountModel)
 public class SauceAmountModel: NSManagedObject {
-
+    var sauceAmount: SauceAmount {
+        get {
+            guard let sauceAmountString = self.amount,
+                  let amount = SauceAmount(rawValue: sauceAmountString) else { return .none }
+            return amount
+        }
+        set {
+            self.amount = newValue.rawValue
+        }
+    }
 }
