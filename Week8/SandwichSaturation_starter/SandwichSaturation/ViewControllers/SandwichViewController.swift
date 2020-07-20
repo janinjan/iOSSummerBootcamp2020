@@ -75,8 +75,8 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
             }
             refresh()
             tableView.reloadData()
-        } catch let error {
-            print(error)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
 
@@ -99,19 +99,35 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
         }
     }
 
+    private func sandwichesFetchRequest(with compoundPredicate: NSPredicate) {
+        let request = Sandwich.fetchRequest() as NSFetchRequest<Sandwich>
+        request.predicate = compoundPredicate
+        let sort = NSSortDescriptor(key: #keyPath(Sandwich.name), ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))
+        request.sortDescriptors = [sort]
+        do {
+            fetchedRC = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            try fetchedRC.performFetch()
+            if let objects = fetchedRC.fetchedObjects {
+                filteredSandwiches = objects
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+
     func saveSandwich(_ sandwich: SandwichData) {
         let sandwichToSave = Sandwich(entity: Sandwich.entity(),
                                       insertInto: context)
         let sauceAmountModel = SauceAmountModel(entity: SauceAmountModel.entity(),
                                                 insertInto: context)
 
+        sauceAmountModel.sauceAmount = sandwich.sauceAmount
         sandwichToSave.name = sandwich.name
         sandwichToSave.imageName = sandwich.imageName
         sandwichToSave.sauce = sauceAmountModel
         appDelegate.saveContext()
         refresh()
         tableView.reloadData()
-        print(sandwichToSave)
     }
 
     @objc
@@ -124,19 +140,37 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
         return searchController.searchBar.text?.isEmpty ?? true
     }
 
-//    func filterContentForSearchText(_ searchText: String, sauceAmount: SauceAmount? = nil) {
-//        filteredSandwiches = sandwiches.filter { (sandwhich: Sandwich) -> Bool in
-//            let doesSauceAmountMatch = sauceAmount == .any || sandwhich.sauce == sauceAmount
-//
-//            if isSearchBarEmpty {
-//                return doesSauceAmountMatch
-//            } else {
-//                return doesSauceAmountMatch && sandwhich.name.lowercased()
-//                    .contains(searchText.lowercased())
-//            }
-//        }
-//        tableView.reloadData()
-//    }
+    func filterContentForSearchText(_ searchText: String, sauceAmount: SauceAmount? = nil) {
+        guard let sauceAmount = sauceAmount else { return }
+        let nonePredicate =  NSPredicate(format: "sauce.amount = %@", SauceAmount.none.rawValue)
+        let tooMuchPredicate = NSPredicate(format: "sauce.amount = %@", SauceAmount.tooMuch.rawValue)
+        let searchPredicate = NSPredicate(format: "name CONTAINS[cd] %@", searchText)
+        let sauceAmountPredicate: NSPredicate
+        let compoundPredicate: NSPredicate
+
+        switch sauceAmount {
+        case .any:
+            sauceAmountPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [
+                nonePredicate,
+                tooMuchPredicate
+            ])
+        case .none:
+            sauceAmountPredicate = nonePredicate
+        case .tooMuch:
+            sauceAmountPredicate = tooMuchPredicate
+        }
+
+        if searchText.isEmpty {
+            compoundPredicate = sauceAmountPredicate // sauce.amount == "None" OR sauce.amount == "Too Much"
+        } else {
+            compoundPredicate = NSCompoundPredicate(type: .and, subpredicates: [
+                searchPredicate,
+                sauceAmountPredicate
+            ])
+        }
+        sandwichesFetchRequest(with: compoundPredicate)
+        tableView.reloadData()
+    }
 
     var isFiltering: Bool {
         let searchBarScopeIsFiltering = searchController.searchBar.selectedScopeButtonIndex != 0
@@ -173,7 +207,7 @@ extension SandwichViewController: UISearchResultsUpdating {
         let searchBar = searchController.searchBar
         let sauceAmount = SauceAmount(rawValue: searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex])
 
-//        filterContentForSearchText(searchBar.text!, sauceAmount: sauceAmount)
+        filterContentForSearchText(searchBar.text!, sauceAmount: sauceAmount)
     }
 }
 
@@ -183,6 +217,6 @@ extension SandwichViewController: UISearchBarDelegate {
         userDefaults.lastScopeSelection = selectedScope // Updates the value of selected scope in UserDefaults
 
         let sauceAmount = SauceAmount(rawValue: searchBar.scopeButtonTitles![selectedScope])
-//        filterContentForSearchText(searchBar.text!, sauceAmount: sauceAmount)
+        filterContentForSearchText(searchBar.text!, sauceAmount: sauceAmount)
     }
 }
