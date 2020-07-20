@@ -193,11 +193,33 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
 
         let sandwich = isFiltering ? filteredSandwiches[indexPath.row] : sandwiches[indexPath.row]
 
-        cell.thumbnail.image = UIImage.init(imageLiteralResourceName: sandwich.imageName)
+        cell.thumbnail.image = UIImage(named: sandwich.imageName)
         cell.nameLabel.text = sandwich.name
         cell.sauceLabel.text = sandwich.sauce.amount
 
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let sandwich = self.fetchedRC.object(at: indexPath)
+            self.sandwiches.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.context.delete(sandwich)
+            self.appDelegate.saveContext()
+            self.refresh()
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if searchController.isActive { // Delete is not possible when the search is active
+            return .none
+        }
+        return .delete
     }
 }
 

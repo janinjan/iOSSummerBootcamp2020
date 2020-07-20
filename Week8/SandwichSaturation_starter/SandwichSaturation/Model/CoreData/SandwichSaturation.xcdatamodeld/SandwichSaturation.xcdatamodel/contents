@@ -3,7 +3,7 @@
     <entity name="Sandwich" representedClassName=".Sandwich" syncable="YES">
         <attribute name="imageName" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
-        <relationship name="sauce" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="SauceAmountModel" inverseName="sandwich" inverseEntity="SauceAmountModel"/>
+        <relationship name="sauce" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SauceAmountModel" inverseName="sandwich" inverseEntity="SauceAmountModel"/>
     </entity>
     <entity name="SauceAmountModel" representedClassName=".SauceAmountModel" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="String"/>
