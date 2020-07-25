@@ -1,0 +1,25 @@
+//
+//  SauceAmountModel+CoreDataClass.swift
+//  SandwichSaturation
+//
+//  Created by Janin Culhaoglu on 19/07/2020.
+//  Copyright © 2020 Jeff Rames. All rights reserved.
+//
+//
+
+import Foundation
+import CoreData
+
+@objc(SauceAmountModel)
+public class SauceAmountModel: NSManagedObject {
+    var sauceAmount: SauceAmount {
+        get {
+            guard let sauceAmountString = self.amount,
+                  let amount = SauceAmount(rawValue: sauceAmountString) else { return .none }
+            return amount
+        }
+        set {
+            self.amount = newValue.rawValue
+        }
+    }
+}
