@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var scoreLabel: UILabel!
 
-    var clues: [Clue] = []
+    var clues: [ClueElement] = []
     var correctAnswerClue: Clue?
     var points: Int = 0
     let network = Networking()
@@ -53,7 +53,12 @@ class ViewController: UIViewController {
     private func getClues() {
         network.getRandomCategory { (success, categoryID) in
             if let id = categoryID, success {
-                print(id[0].category.id)
+                let id = id[0].category.id
+                self.network.getAllCluesInCategory(categoryID: id) { (success, clues) in
+                    if let clues = clues, success {
+                        self.clues = clues
+                    }
+                }
             }
         }
     }
