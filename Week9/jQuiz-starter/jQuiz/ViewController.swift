@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     var clues: [Clue] = []
     var correctAnswerClue: Clue?
     var points: Int = 0
+    let network = Networking()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,7 @@ class ViewController: UIViewController {
         }
 
         SoundManager.shared.playSound()
+        getClues()
         
     }
 
@@ -48,6 +50,13 @@ class ViewController: UIViewController {
         }
     }
 
+    private func getClues() {
+        network.getRandomCategory { (success, categoryID) in
+            if let id = categoryID, success {
+                print(id[0].category.id)
+            }
+        }
+    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
