@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
 
     var clues: [ClueElement] = []
+    var fourCLuesList: [ClueElement] = []
     var correctAnswerClue: Clue?
     var points: Int = 0
     let network = Networking()
@@ -27,6 +28,7 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
+        getClues()
         
         self.scoreLabel.text = "\(self.points)"
 
@@ -37,7 +39,6 @@ class ViewController: UIViewController {
         }
 
         SoundManager.shared.playSound()
-        getClues()
         
     }
 
@@ -57,16 +58,25 @@ class ViewController: UIViewController {
                 self.network.getAllCluesInCategory(categoryID: id) { (success, clues) in
                     if let clues = clues, success {
                         self.clues = clues
+                        self.fourCLuesList = clues.enumerated().compactMap{ $0 < 4 ? $1 : nil }
+                        self.updateUI()
+                        self.tableView.reloadData()
                     }
                 }
             }
         }
     }
+
+    private func updateUI() {
+        let shuffledClues = fourCLuesList.shuffled()
+        categoryLabel.text = fourCLuesList[0].category.title
+        clueLabel.text = shuffledClues[0].question
+    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return clues.count
+        return fourCLuesList.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -74,7 +84,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = fourCLuesList[indexPath.row].answer
+//        print(firstFourClues)
         return cell
     }
 
