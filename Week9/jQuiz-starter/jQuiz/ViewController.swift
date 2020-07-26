@@ -19,7 +19,8 @@ class ViewController: UIViewController {
 
     var clues: [ClueElement] = []
     var fourCLuesList: [ClueElement] = []
-    var correctAnswerClue: Clue?
+    var selectedAnswer: ClueElement?
+    var correctAnswerClue: ClueElement?
     var points: Int = 0
     let network = Networking()
 
@@ -58,7 +59,8 @@ class ViewController: UIViewController {
                 self.network.getAllCluesInCategory(categoryID: id) { (success, clues) in
                     if let clues = clues, success {
                         self.clues = clues
-                        self.fourCLuesList = clues.enumerated().compactMap{ $0 < 4 ? $1 : nil }
+                        self.fourCLuesList = Array(clues.prefix(4))
+//                        print(self.fourCLuesList)
                         self.updateUI()
                         self.tableView.reloadData()
                     }
@@ -68,9 +70,10 @@ class ViewController: UIViewController {
     }
 
     private func updateUI() {
-        let shuffledClues = fourCLuesList.shuffled()
         categoryLabel.text = fourCLuesList[0].category.title
-        clueLabel.text = shuffledClues[0].question
+        let randomClue = fourCLuesList.randomElement()
+        clueLabel.text = randomClue?.question
+        self.correctAnswerClue = randomClue
     }
 }
 
@@ -86,12 +89,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = fourCLuesList[indexPath.row].answer
-//        print(firstFourClues)
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        let selectedAnswer = fourCLuesList[indexPath.row]
+        guard let correct = correctAnswerClue else { return }
+        if selectedAnswer.answer.contains(correct.answer) {
+            print("ok")
+        } else {
+            print("wrong answer")
+        }
     }
 }
 
