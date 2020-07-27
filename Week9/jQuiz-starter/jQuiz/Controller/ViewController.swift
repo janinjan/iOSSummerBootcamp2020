@@ -52,10 +52,10 @@ class ViewController: UIViewController {
     }
 
     private func getClues() {
-        network.getRandomCategory { (success, categoryID) in
-            if let id = categoryID, success {
-                let id = id[0].category.id
-                self.network.getAllCluesInCategory(categoryID: id) { (success, clues) in
+        network.getRandomCategory { (success, category) in
+            if let id = category, success {
+                let categoryID = id[0].categoryID
+                self.network.getAllCluesInCategory(categoryID: categoryID ) { (success, clues) in
                     if let clues = clues, success {
                         DispatchQueue.main.async {
                             self.clues = Array(clues.prefix(4))
@@ -125,7 +125,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let correct = correctAnswerClue else { return }
         if selectedAnswer.answer.contains(correct.answer) {
-            points += correct.value ?? 0
+            points += correct.points ?? 0
             backgroundView.backgroundColor = UIColor.green
         } else {
             backgroundView.backgroundColor = UIColor.red

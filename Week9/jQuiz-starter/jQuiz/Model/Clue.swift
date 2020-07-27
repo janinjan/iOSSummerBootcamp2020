@@ -10,15 +10,22 @@ import Foundation
 
 typealias Clue = [ClueElement]
 
-struct ClueElement: Decodable {
+struct ClueElement: Codable {
     let id: Int
-    let value: Int?
+    let points: Int?
     let answer: String
     let question: String?
+    let categoryID: Int
     let category: Category
+    
+    enum CodingKeys: String, CodingKey {
+        case id, answer, question, category
+        case points = "value"
+        case categoryID = "category_id"
+    }
 }
 
-struct Category: Decodable {
+struct Category: Codable {
     let id: Int
     let title: String
     let cluesCount: Int
