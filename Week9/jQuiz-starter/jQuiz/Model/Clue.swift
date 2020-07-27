@@ -12,8 +12,9 @@ typealias Clue = [ClueElement]
 
 struct ClueElement: Decodable {
     let id: Int
+    let value: Int?
     let answer: String
-    let question: String
+    let question: String?
     let category: Category
 }
 

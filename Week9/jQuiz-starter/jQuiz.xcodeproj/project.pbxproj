@@ -80,6 +80,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D39BCA024CE14CD00790D82 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF5BAF24C260A600F6D3EC /* Clue.swift */,
+				C3DF5BAD24C25E1A00F6D3EC /* NetworkingHandler.swift */,
+				C3FBE53524C2877C00D11A30 /* SoundManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3D39BCA124CE14D300790D82 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF5B8424C2549A00F6D3EC /* LaunchScreen.storyboard */,
+				C3DF5B7C24C2549400F6D3EC /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3D39BCA224CE14D800790D82 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF5B7A24C2549400F6D3EC /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3D39BCA324CE14FD00790D82 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C3FBE53724C4DEA300D11A30 /* ImageCache.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C3DF5B6A24C2549400F6D3EC = {
 			isa = PBXGroup;
 			children = (
@@ -101,14 +136,11 @@
 		C3DF5B7524C2549400F6D3EC /* jQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				3D39BCA324CE14FD00790D82 /* Extensions */,
+				3D39BCA024CE14CD00790D82 /* Model */,
+				3D39BCA124CE14D300790D82 /* View */,
+				3D39BCA224CE14D800790D82 /* Controller */,
 				C3DF5BA924C254A800F6D3EC /* AppDelegate */,
-				C3DF5B7A24C2549400F6D3EC /* ViewController.swift */,
-				C3DF5BAD24C25E1A00F6D3EC /* NetworkingHandler.swift */,
-				C3FBE53524C2877C00D11A30 /* SoundManager.swift */,
-				C3DF5BAF24C260A600F6D3EC /* Clue.swift */,
-				C3FBE53724C4DEA300D11A30 /* ImageCache.swift */,
-				C3DF5B7C24C2549400F6D3EC /* Main.storyboard */,
-				C3DF5B8424C2549A00F6D3EC /* LaunchScreen.storyboard */,
 				C3DF5BAC24C256D600F6D3EC /* Assets */,
 				C3DF5B8724C2549A00F6D3EC /* Info.plist */,
 			);
