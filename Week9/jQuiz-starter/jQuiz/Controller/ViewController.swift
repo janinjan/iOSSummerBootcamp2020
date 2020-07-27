@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         getClues()
-        
+
         self.scoreLabel.text = "\(self.points)"
 
         if SoundManager.shared.isSoundEnabled == false {
@@ -78,27 +78,16 @@ class ViewController: UIViewController {
         scoreLabel.text = "\(points)"
         tableView.reloadData()
     }
-    
+
     private func changeQuestion() {
         getClues()
     }
-    
+
     private func displayLogo() {
         guard let imageUrl = URL(string: "https://cdn1.edgedatg.com/aws/v2/abc/ABCUpdates/blog/2900129/8484c3386d4378d7c826e3f3690b481b/1600x900-Q90_8484c3386d4378d7c826e3f3690b481b.jpg") else {
             return
         }
-        let task = URLSession.shared.downloadTask(with: imageUrl) { location, response, error in
-            
-            guard let location = location,
-                  let imageData = try? Data(contentsOf: location),
-                  let image = UIImage(data: imageData) else {
-                return
-            }
-            DispatchQueue.main.async {
-                self.logoImageView.image = image
-            }
-        }
-        task.resume()
+        logoImageView.setImage(with: imageUrl)
     }
 }
 
@@ -106,23 +95,23 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return clues.count
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = clues[indexPath.row].answer
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedAnswer = clues[indexPath.row]
         let selectedCell = tableView.cellForRow(at: indexPath)
         let backgroundView = UIView()
         selectedCell?.selectedBackgroundView = backgroundView
-        
+
         guard let correct = correctAnswerClue else { return }
         if selectedAnswer.answer.contains(correct.answer) {
             points += correct.points ?? 0
@@ -135,4 +124,3 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
-
