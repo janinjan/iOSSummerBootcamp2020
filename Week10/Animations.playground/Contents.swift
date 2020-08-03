@@ -9,18 +9,17 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 //: **Step 1**: Implement this new `UIView` function:
 extension UIView {
   static func animate(withDuration duration: TimeInterval, animations: @escaping () -> Void, group: DispatchGroup, completion: ((Bool) -> Void)?) {
-    
   // TODO: Fill in this implementation
-  
+    group.enter()
+    animate(withDuration: duration, animations: animations) { success in
+        completion?(success)
+        group.leave()
+    }
   }
 }
 //: ## Setup
 // Use this dispatch group:
 let animationGroup = DispatchGroup()
-// This should only print once all the animations are complete
-animationGroup.notify(queue: DispatchQueue.main) {
-  print("Animations Completed!")
-}
 //: ## Views
 //: The animation uses the following views
 // A red square
@@ -47,5 +46,10 @@ UIView.animate(withDuration: 1, animations: {
 UIView.animate(withDuration: 4, animations: { () -> Void in
   // Change background color to blue
   view.backgroundColor = UIColor.blue
-})
+}, group: animationGroup, completion: nil)
+
+// This should only print once all the animations are complete
+animationGroup.notify(queue: DispatchQueue.main) {
+  print("Animations Completed!")
+}
 //: __Note:__ Manually stop execution of this playground when the animation finishes: click the stop button below.
