@@ -1,24 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17132" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AnimateMenu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IKV-Zo-cJc">
+                                <rect key="frame" x="0.0" y="542" width="414" height="300"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="274-hN-e0I">
+                                        <rect key="frame" x="167" y="110.5" width="80" height="79"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="JP1-G5-Feb"/>
+                                            <constraint firstAttribute="width" secondItem="274-hN-e0I" secondAttribute="height" multiplier="1:1" id="RuN-TR-K92"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <imageReference key="backgroundImage" image="plus.circle.fill" catalog="system" symbolScale="default"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toggleMenu:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6uB-m4-GcQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HDM-JB-YLI">
+                                        <rect key="frame" x="167" y="20.5" width="80" height="79"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="FLx-GA-DAP"/>
+                                            <constraint firstAttribute="width" secondItem="HDM-JB-YLI" secondAttribute="height" multiplier="1:1" id="I5T-5A-WpA"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" backgroundImage="folder.circle.fill" catalog="system"/>
+                                    </button>
+                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XvX-oO-HDF">
+                                        <rect key="frame" x="77" y="110.5" width="80" height="79"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="R8s-Y6-DgS"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" backgroundImage="pencil.circle.fill" catalog="system"/>
+                                    </button>
+                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUG-L4-kUC">
+                                        <rect key="frame" x="257" y="110.5" width="80" height="79"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="RUG-L4-kUC" secondAttribute="height" multiplier="1:1" id="JXS-O5-73s"/>
+                                            <constraint firstAttribute="height" constant="80" id="sLU-Zd-bbQ"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" backgroundImage="trash.circle.fill" catalog="system"/>
+                                    </button>
+                                    <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUk-ad-8Bi">
+                                        <rect key="frame" x="107" y="50" width="200" height="200"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="RUk-ad-8Bi" secondAttribute="height" multiplier="1:1" id="s91-Zz-NaY"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="RUk-ad-8Bi" firstAttribute="leading" secondItem="XvX-oO-HDF" secondAttribute="leading" constant="30" id="1LD-iJ-aTq"/>
+                                    <constraint firstItem="RUk-ad-8Bi" firstAttribute="trailing" secondItem="RUG-L4-kUC" secondAttribute="trailing" constant="-30" id="2PG-65-50i"/>
+                                    <constraint firstItem="XvX-oO-HDF" firstAttribute="width" secondItem="XvX-oO-HDF" secondAttribute="height" multiplier="1:1" id="6Dt-MP-s8F"/>
+                                    <constraint firstItem="RUk-ad-8Bi" firstAttribute="centerY" secondItem="IKV-Zo-cJc" secondAttribute="centerY" id="6jx-Wm-Ug0"/>
+                                    <constraint firstItem="RUk-ad-8Bi" firstAttribute="centerX" secondItem="IKV-Zo-cJc" secondAttribute="centerX" id="7jr-vs-Ck8"/>
+                                    <constraint firstItem="274-hN-e0I" firstAttribute="centerX" secondItem="IKV-Zo-cJc" secondAttribute="centerX" id="BXT-1G-QXK"/>
+                                    <constraint firstItem="HDM-JB-YLI" firstAttribute="centerX" secondItem="274-hN-e0I" secondAttribute="centerX" id="CLW-RJ-11V"/>
+                                    <constraint firstItem="RUG-L4-kUC" firstAttribute="leading" secondItem="274-hN-e0I" secondAttribute="trailing" constant="10" id="MIp-TU-y4a"/>
+                                    <constraint firstItem="274-hN-e0I" firstAttribute="centerY" secondItem="IKV-Zo-cJc" secondAttribute="centerY" id="OqM-Ww-hse"/>
+                                    <constraint firstItem="XvX-oO-HDF" firstAttribute="centerY" secondItem="274-hN-e0I" secondAttribute="centerY" id="P2g-Vp-Xbx"/>
+                                    <constraint firstAttribute="height" constant="300" id="S8k-KU-Leh"/>
+                                    <constraint firstItem="274-hN-e0I" firstAttribute="leading" secondItem="XvX-oO-HDF" secondAttribute="trailing" constant="10" id="lRP-kT-e8E"/>
+                                    <constraint firstItem="274-hN-e0I" firstAttribute="top" secondItem="HDM-JB-YLI" secondAttribute="bottom" constant="10" id="pIC-FD-sjO"/>
+                                    <constraint firstItem="RUk-ad-8Bi" firstAttribute="top" secondItem="HDM-JB-YLI" secondAttribute="top" constant="30" id="peN-3g-aln"/>
+                                    <constraint firstItem="RUG-L4-kUC" firstAttribute="centerY" secondItem="274-hN-e0I" secondAttribute="centerY" id="zgF-3j-UHS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="IKV-Zo-cJc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="JGa-dN-v0e"/>
+                            <constraint firstItem="IKV-Zo-cJc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Qzk-aj-LX1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IKV-Zo-cJc" secondAttribute="bottom" constant="20" id="zuH-ir-C6x"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="buttonOne" destination="XvX-oO-HDF" id="Ppt-rl-F93"/>
+                        <outlet property="buttonThree" destination="RUG-L4-kUC" id="0Kn-Vk-kbn"/>
+                        <outlet property="buttonTwo" destination="HDM-JB-YLI" id="MeW-xf-hR5"/>
+                        <outlet property="circleView" destination="RUk-ad-8Bi" id="cab-Oc-Axn"/>
+                        <outlet property="menuButton" destination="274-hN-e0I" id="A7r-BH-Csl"/>
+                        <outlet property="menuView" destination="IKV-Zo-cJc" id="8eU-Sf-THu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="103.79464285714285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="folder.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="trash.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
