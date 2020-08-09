@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var buttonOne: UIButton!
     @IBOutlet weak var buttonTwo: UIButton!
     @IBOutlet weak var buttonThree: UIButton!
+    @IBOutlet weak var backgroundImageView: UIImageView!
 
     // MARK: - Properties
     private var isMenuOpen = false
@@ -36,6 +37,7 @@ class ViewController: UIViewController {
         buttonThree.center = menuButton.center
 
         circleView.layer.zPosition = -1
+        backgroundImageView.layer.cornerRadius = 20
     }
 
     // MARK: - Actions
