@@ -28,13 +28,26 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="476"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animation Added Successfully" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ao-9W-hnS">
+                                                <rect key="frame" x="20" y="20" width="314" height="46"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="46" id="HP4-ue-Uzo"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="1ao-9W-hnS" secondAttribute="trailing" constant="20" id="GBq-dB-2RQ"/>
                                             <constraint firstItem="g4Y-oD-OTy" firstAttribute="leading" secondItem="uXu-RK-kvz" secondAttribute="leading" id="PhL-vA-z9d"/>
                                             <constraint firstItem="g4Y-oD-OTy" firstAttribute="top" secondItem="uXu-RK-kvz" secondAttribute="top" id="Qym-28-q5X"/>
                                             <constraint firstAttribute="trailing" secondItem="g4Y-oD-OTy" secondAttribute="trailing" id="SWZ-Nw-LvS"/>
+                                            <constraint firstItem="1ao-9W-hnS" firstAttribute="top" secondItem="g4Y-oD-OTy" secondAttribute="top" constant="20" id="TpR-S8-He8"/>
                                             <constraint firstAttribute="bottom" secondItem="g4Y-oD-OTy" secondAttribute="bottom" id="VQY-rN-SiA"/>
+                                            <constraint firstItem="1ao-9W-hnS" firstAttribute="leading" secondItem="uXu-RK-kvz" secondAttribute="leading" constant="20" id="ugk-2i-yNC"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IKV-Zo-cJc">
@@ -66,6 +79,9 @@
                                                     <imageReference key="image" image="arrow.clockwise" catalog="system" symbolScale="large"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="26" scale="large" weight="regular"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="rotateButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HKQ-0Y-svH"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XvX-oO-HDF">
                                                 <rect key="frame" x="57" y="115" width="70" height="70"/>
@@ -76,6 +92,9 @@
                                                 <state key="normal" image="square" catalog="system" backgroundImage="greenYellowCircle">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="26" scale="large" weight="regular"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="squareButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="90d-Xy-D4E"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUG-L4-kUC">
                                                 <rect key="frame" x="227" y="115" width="70" height="70"/>
@@ -87,6 +106,9 @@
                                                 <state key="normal" image="arrowshape.turn.up.right" catalog="system" backgroundImage="greenYellowCircle">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="26" scale="large" weight="regular"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="moveToRightButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="95L-d6-SaQ"/>
+                                                </connections>
                                             </button>
                                             <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUk-ad-8Bi">
                                                 <rect key="frame" x="87" y="60" width="180" height="180"/>
@@ -134,6 +156,7 @@
                         <outlet property="buttonThree" destination="RUG-L4-kUC" id="0Kn-Vk-kbn"/>
                         <outlet property="buttonTwo" destination="HDM-JB-YLI" id="MeW-xf-hR5"/>
                         <outlet property="circleView" destination="RUk-ad-8Bi" id="cab-Oc-Axn"/>
+                        <outlet property="informationLabel" destination="1ao-9W-hnS" id="swl-co-BPI"/>
                         <outlet property="menuButton" destination="274-hN-e0I" id="A7r-BH-Csl"/>
                         <outlet property="menuView" destination="IKV-Zo-cJc" id="8eU-Sf-THu"/>
                     </connections>
@@ -148,10 +171,14 @@
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
         <image name="greenYellowCircle" width="45" height="45"/>
+        <image name="greenYellowCircle" width="128" height="128"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="square" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

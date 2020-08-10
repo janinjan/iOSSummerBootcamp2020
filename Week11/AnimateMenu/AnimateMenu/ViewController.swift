@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var buttonTwo: UIButton!
     @IBOutlet weak var buttonThree: UIButton!
     @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var informationLabel: UILabel!
 
     // MARK: - Properties
     private var isMenuOpen = false
@@ -31,13 +32,15 @@ class ViewController: UIViewController {
         buttonOneCenter = buttonOne.center
         buttonTwoCenter = buttonTwo.center
         buttonThreeCenter = buttonThree.center
-
+        
         buttonOne.center = menuButton.center
         buttonTwo.center = menuButton.center
         buttonThree.center = menuButton.center
 
         circleView.layer.zPosition = -1
         backgroundImageView.layer.cornerRadius = 20
+        informationLabel.layer.cornerRadius = 15
+        informationLabel.layer.masksToBounds = true
     }
 
     // MARK: - Actions
@@ -60,6 +63,31 @@ class ViewController: UIViewController {
         })
     }
 
+    @IBAction func squareButtonTapped(_ sender: UIButton) {
+        animateInformationLabel()
+    }
+
+    @IBAction func rotateButtonTapped(_ sender: UIButton) {
+        animateInformationLabel()
+    }
+
+    @IBAction func moveToRightButtonTapped(_ sender: UIButton) {
+        animateInformationLabel()
+    }
+
+    private func animateInformationLabel() {
+        informationLabel.alpha = 0
+        UIView.animate(withDuration: 0.45) {
+            self.informationLabel.alpha = 0.9
+        }
+
+        delay(seconds: 1) {
+            UIView.animate(withDuration: 0.45) {
+                self.informationLabel.alpha = 0
+            }
+        }
+    }
+
     private func assignbackground() {
         let background = UIImage(named: "violetRectangle")
         var imageView : UIImageView!
@@ -70,5 +98,9 @@ class ViewController: UIViewController {
         imageView.center = view.center
         view.addSubview(imageView)
         self.view.sendSubviewToBack(imageView)
+    }
+
+    private func delay(seconds: TimeInterval, execute: @escaping () -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds, execute: execute)
     }
 }
