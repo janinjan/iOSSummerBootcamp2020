@@ -89,7 +89,7 @@
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="26" scale="large" weight="regular"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="rotateButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HKQ-0Y-svH"/>
+                                                    <action selector="moveUpButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HKQ-0Y-svH"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XvX-oO-HDF">
@@ -98,11 +98,11 @@
                                                     <constraint firstAttribute="height" constant="70" id="R8s-Y6-DgS"/>
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" image="square" catalog="system" backgroundImage="greenYellowCircle">
+                                                <state key="normal" image="lightbulb.slash" catalog="system" backgroundImage="greenYellowCircle">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="26" scale="large" weight="regular"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="squareButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="90d-Xy-D4E"/>
+                                                    <action selector="lightButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="90d-Xy-D4E"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUG-L4-kUC">
@@ -112,11 +112,11 @@
                                                     <constraint firstAttribute="height" constant="70" id="sLU-Zd-bbQ"/>
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" image="arrowshape.turn.up.right" catalog="system" backgroundImage="greenYellowCircle">
+                                                <state key="normal" image="rectangle.compress.vertical" catalog="system" backgroundImage="greenYellowCircle">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="26" scale="large" weight="regular"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="moveToRightButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="95L-d6-SaQ"/>
+                                                    <action selector="scaleButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="95L-d6-SaQ"/>
                                                 </connections>
                                             </button>
                                             <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUk-ad-8Bi">
@@ -179,13 +179,13 @@
     </scenes>
     <resources>
         <image name="AnimationBackground" width="413" height="541"/>
-        <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
         <image name="capslock" catalog="system" width="128" height="121"/>
         <image name="greenYellowCircle" width="45" height="45"/>
         <image name="greenYellowCircle" width="128" height="128"/>
+        <image name="lightbulb.slash" catalog="system" width="116" height="128"/>
         <image name="person" width="89" height="130"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="square" catalog="system" width="128" height="114"/>
+        <image name="rectangle.compress.vertical" catalog="system" width="122" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

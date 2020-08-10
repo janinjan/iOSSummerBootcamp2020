@@ -72,11 +72,17 @@ class ViewController: UIViewController {
         })
     }
 
-    @IBAction func squareButtonTapped(_ sender: UIButton) {
+    @IBAction func lightButtonTapped(_ sender: UIButton) {
         animateInformationLabel()
+        animator.addAnimations {
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 3, options: .curveEaseIn, animations: {
+                self.person.alpha = 0.5
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+        }
     }
 
-    @IBAction func rotateButtonTapped(_ sender: UIButton) {
+    @IBAction func moveUpButtonTapped(_ sender: UIButton) {
         animateInformationLabel()
         animator.addAnimations {
             UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 3, options: .curveEaseIn, animations: {
@@ -86,8 +92,14 @@ class ViewController: UIViewController {
         }
     }
 
-    @IBAction func moveToRightButtonTapped(_ sender: UIButton) {
+    @IBAction func scaleButtonTapped(_ sender: UIButton) {
         animateInformationLabel()
+        animator.addAnimations {
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 3, options: .curveEaseIn, animations: {
+                self.person.transform = .init(scaleX: 0.8, y: 0.8)
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+        }
     }
 
     private func animateInformationLabel() {
