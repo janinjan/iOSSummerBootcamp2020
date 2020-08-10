@@ -16,14 +16,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var buttonTwo: UIButton!
     @IBOutlet weak var buttonThree: UIButton!
     @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var person: UIImageView!
     @IBOutlet weak var informationLabel: UILabel!
-
+    @IBOutlet weak var personBottomConstraint: NSLayoutConstraint!
+    
     // MARK: - Properties
     private var isMenuOpen = false
     var buttonOneCenter: CGPoint!
     var buttonTwoCenter: CGPoint!
     var buttonThreeCenter: CGPoint!
     var circleViewCenter: CGPoint!
+    var animator: UIViewPropertyAnimator!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +44,17 @@ class ViewController: UIViewController {
         backgroundImageView.layer.cornerRadius = 20
         informationLabel.layer.cornerRadius = 15
         informationLabel.layer.masksToBounds = true
+        
+        animator = UIViewPropertyAnimator.init(duration: 5.0, curve: .easeInOut)
     }
 
     // MARK: - Actions
     @IBAction func toggleMenu(_ sender: UIButton) {
         isMenuOpen.toggle()
+
+        if menuButton.currentBackgroundImage == UIImage(systemName: "play.circle.fill") {
+            animator.startAnimation()
+        }
 
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .allowUserInteraction, animations: {
             self.buttonOne.center =  self.isMenuOpen ? self.buttonOneCenter : self.menuButton.center
@@ -69,6 +78,12 @@ class ViewController: UIViewController {
 
     @IBAction func rotateButtonTapped(_ sender: UIButton) {
         animateInformationLabel()
+        animator.addAnimations {
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 3, options: .curveEaseIn, animations: {
+                self.personBottomConstraint.constant = 200
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+        }
     }
 
     @IBAction func moveToRightButtonTapped(_ sender: UIButton) {

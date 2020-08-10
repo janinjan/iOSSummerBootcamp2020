@@ -38,15 +38,24 @@
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" translatesAutoresizingMaskIntoConstraints="NO" id="Gpr-MM-cnF">
+                                                <rect key="frame" x="143" y="219" width="68" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Gpr-MM-cnF" secondAttribute="height" multiplier="89:130" id="4gJ-uh-qMb"/>
+                                                    <constraint firstAttribute="height" constant="100" id="7HZ-Q0-xIV"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="1ao-9W-hnS" secondAttribute="trailing" constant="20" id="GBq-dB-2RQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="Gpr-MM-cnF" secondAttribute="bottom" constant="157" id="Oqo-dP-P1S"/>
                                             <constraint firstItem="g4Y-oD-OTy" firstAttribute="leading" secondItem="uXu-RK-kvz" secondAttribute="leading" id="PhL-vA-z9d"/>
                                             <constraint firstItem="g4Y-oD-OTy" firstAttribute="top" secondItem="uXu-RK-kvz" secondAttribute="top" id="Qym-28-q5X"/>
                                             <constraint firstAttribute="trailing" secondItem="g4Y-oD-OTy" secondAttribute="trailing" id="SWZ-Nw-LvS"/>
                                             <constraint firstItem="1ao-9W-hnS" firstAttribute="top" secondItem="g4Y-oD-OTy" secondAttribute="top" constant="20" id="TpR-S8-He8"/>
                                             <constraint firstAttribute="bottom" secondItem="g4Y-oD-OTy" secondAttribute="bottom" id="VQY-rN-SiA"/>
+                                            <constraint firstItem="Gpr-MM-cnF" firstAttribute="centerX" secondItem="uXu-RK-kvz" secondAttribute="centerX" id="oaB-zy-al4"/>
                                             <constraint firstItem="1ao-9W-hnS" firstAttribute="leading" secondItem="uXu-RK-kvz" secondAttribute="leading" constant="20" id="ugk-2i-yNC"/>
                                         </constraints>
                                     </view>
@@ -76,7 +85,7 @@
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" backgroundImage="greenYellowCircle">
-                                                    <imageReference key="image" image="arrow.clockwise" catalog="system" symbolScale="large"/>
+                                                    <imageReference key="image" image="capslock" catalog="system" symbolScale="large"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="26" scale="large" weight="regular"/>
                                                 </state>
                                                 <connections>
@@ -159,6 +168,8 @@
                         <outlet property="informationLabel" destination="1ao-9W-hnS" id="swl-co-BPI"/>
                         <outlet property="menuButton" destination="274-hN-e0I" id="A7r-BH-Csl"/>
                         <outlet property="menuView" destination="IKV-Zo-cJc" id="8eU-Sf-THu"/>
+                        <outlet property="person" destination="Gpr-MM-cnF" id="49G-DX-CSt"/>
+                        <outlet property="personBottomConstraint" destination="Oqo-dP-P1S" id="gw4-fV-TIH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -168,10 +179,11 @@
     </scenes>
     <resources>
         <image name="AnimationBackground" width="413" height="541"/>
-        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
+        <image name="capslock" catalog="system" width="128" height="121"/>
         <image name="greenYellowCircle" width="45" height="45"/>
         <image name="greenYellowCircle" width="128" height="128"/>
+        <image name="person" width="89" height="130"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="square" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
