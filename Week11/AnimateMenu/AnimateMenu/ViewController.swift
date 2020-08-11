@@ -37,7 +37,6 @@ class ViewController: UIViewController {
         buttonTwoBottomConstraint.constant = -20
         buttonThreeTrailingConstraint.constant = -20
 
-//        circleView.layer.zPosition = -1
         backgroundImageView.layer.cornerRadius = 20
         informationLabel.layer.cornerRadius = 15
         informationLabel.layer.masksToBounds = true
@@ -55,6 +54,23 @@ class ViewController: UIViewController {
 
         if menuButton.currentBackgroundImage == UIImage(systemName: "play.circle.fill") {
             animator.startAnimation()
+            animator.addCompletion { position in
+                switch position {
+                case .end:
+                    UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 4, animations: {
+                        self.personBottomConstraint.constant = -155
+                        self.person.alpha = 1
+                        self.person.transform = .identity
+                        self.view.layoutIfNeeded()
+                    })
+                case .start:
+                    break
+                case .current:
+                    break
+                @unknown default:
+                    break
+                }
+            }
         }
 
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .allowUserInteraction, animations: {
