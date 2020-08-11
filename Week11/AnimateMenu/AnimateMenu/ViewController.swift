@@ -10,7 +10,6 @@ import UIKit
 class ViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet private var menuButton: UIButton!
-    @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var circleView: UIView!
     @IBOutlet weak var buttonOne: UIButton!
     @IBOutlet weak var buttonTwo: UIButton!
@@ -18,13 +17,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var person: UIImageView!
     @IBOutlet weak var informationLabel: UILabel!
+
     @IBOutlet weak var personBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var buttonOneTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var buttonTwoBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var buttonThreeTrailingConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     private var isMenuOpen = false
-    var buttonOneCenter: CGPoint!
-    var buttonTwoCenter: CGPoint!
-    var buttonThreeCenter: CGPoint!
     var circleViewCenter: CGPoint!
     var animator: UIViewPropertyAnimator!
 
@@ -32,19 +32,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         assignbackground()
         circleView.layer.cornerRadius = circleView.frame.width/2
-        buttonOneCenter = buttonOne.center
-        buttonTwoCenter = buttonTwo.center
-        buttonThreeCenter = buttonThree.center
-        
-        buttonOne.center = menuButton.center
-        buttonTwo.center = menuButton.center
-        buttonThree.center = menuButton.center
 
-        circleView.layer.zPosition = -1
+        buttonOneTrailingConstraint.constant = -20
+        buttonTwoBottomConstraint.constant = -20
+        buttonThreeTrailingConstraint.constant = -20
+
+//        circleView.layer.zPosition = -1
         backgroundImageView.layer.cornerRadius = 20
         informationLabel.layer.cornerRadius = 15
         informationLabel.layer.masksToBounds = true
-        
+
+        buttonOne.alpha = 0
+        buttonTwo.alpha = 0
+        buttonThree.alpha = 0
+
         animator = UIViewPropertyAnimator.init(duration: 5.0, curve: .easeInOut)
     }
 
@@ -57,10 +58,12 @@ class ViewController: UIViewController {
         }
 
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .allowUserInteraction, animations: {
-            self.buttonOne.center =  self.isMenuOpen ? self.buttonOneCenter : self.menuButton.center
-            self.buttonTwo.center = self.isMenuOpen ? self.buttonTwoCenter : self.menuButton.center
-            self.buttonThree.center = self.isMenuOpen ? self.buttonThreeCenter : self.menuButton.center
-
+            let menuConstraint: CGFloat = self.isMenuOpen ? 20 : -90
+            self.buttonOneTrailingConstraint.constant = menuConstraint
+            self.buttonTwoBottomConstraint.constant = menuConstraint
+            self.buttonThreeTrailingConstraint.constant = menuConstraint
+            self.view.layoutIfNeeded()
+            
             self.buttonOne.alpha = self.isMenuOpen ? 1 : 0
             self.buttonTwo.alpha = self.isMenuOpen ? 1 : 0
             self.buttonThree.alpha = self.isMenuOpen ? 1 : 0
@@ -86,7 +89,7 @@ class ViewController: UIViewController {
         animateInformationLabel()
         animator.addAnimations {
             UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 3, options: .curveEaseIn, animations: {
-                self.personBottomConstraint.constant = 200
+                self.personBottomConstraint.constant = -220
                 self.view.layoutIfNeeded()
             }, completion: nil)
         }
